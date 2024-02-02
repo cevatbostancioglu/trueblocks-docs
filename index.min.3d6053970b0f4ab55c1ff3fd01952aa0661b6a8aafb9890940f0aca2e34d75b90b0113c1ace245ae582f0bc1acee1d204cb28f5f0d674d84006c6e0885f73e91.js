@@ -1,4 +1,5 @@
-var suggestions=document.getElementById("suggestions"),userinput=document.getElementById("userinput");document.addEventListener("keydown",inputFocus);function inputFocus(e){e.keyCode===191&&(e.preventDefault(),userinput.focus()),e.keyCode===27&&(userinput.blur(),suggestions.classList.add("d-none"))}document.addEventListener("click",function(e){var t=suggestions.contains(e.target);t||suggestions.classList.add("d-none")}),document.addEventListener("keydown",suggestionFocus);function suggestionFocus(e){const s=suggestions.querySelectorAll("a"),o=[...s],t=o.indexOf(document.activeElement);let n=0;e.keyCode===38?(e.preventDefault(),n=t>0?t-1:0,s[n].focus()):e.keyCode===40&&(e.preventDefault(),n=t+1<o.length?t+1:t,s[n].focus())}(function(){var e=new FlexSearch.Document({tokenize:"forward",cache:100,document:{id:"id",store:["href","title","description"],index:["title","description","content"]}});e.add({id:0,href:"https://trueblocks.io/docs/",title:"Introduction",description:"TrueBlocks Docs",content:`<p>Are blockchains really meeting their promise?</p>
+var suggestions=document.getElementById("suggestions"),userinput=document.getElementById("userinput");document.addEventListener("keydown",inputFocus);function inputFocus(e){e.keyCode===191&&(e.preventDefault(),userinput.focus()),e.keyCode===27&&(userinput.blur(),suggestions.classList.add("d-none"))}document.addEventListener("click",function(e){var t=suggestions.contains(e.target);t||suggestions.classList.add("d-none")}),document.addEventListener("keydown",suggestionFocus);function suggestionFocus(e){const s=suggestions.querySelectorAll("a"),o=[...s],t=o.indexOf(document.activeElement);let n=0;e.keyCode===38?(e.preventDefault(),n=t>0?t-1:0,s[n].focus()):e.keyCode===40&&(e.preventDefault(),n=t+1<o.length?t+1:t,s[n].focus())}(function(){var e=new FlexSearch.Document({tokenize:"forward",cache:100,document:{id:"id",store:["href","title","description"],index:["title","description","content"]}});e.add({id:0,href:"https://trueblocks.io/docs/",title:"Introduction",description:"TrueBlocks Docs",content:`<!-- markdownlint-disable MD041 MD033 -->
+<p>Are blockchains really meeting their promise?</p>
 <h2 id="problem-statement">Problem Statement</h2>
 <p>If you&rsquo;re like us, you fell in love with blockchains because of the promise they provide: world-wide, private, and permissionless
 access to the most accurate and agreed-upon data ever produced. Near perfect data.</p>
@@ -48,7 +49,8 @@ telling them, with near perfect data, exactly what you spend your money on.</p>
 environment to provide you ingress and egress to the chain.</p>
 <h2 id="solution">Solution</h2>
 <p><a href="https://dappnode.io/">dAppNode</a>, <a href="https://github.com/ledgerwatch/erigon">Erigon</a> and TrueBlocks.</p>
-`}).add({id:1,href:"https://trueblocks.io/docs/install/install-core/",title:"Install core",description:"TrueBlocks works on Linux and Mac",content:`<p>These instructions assume you can navigate the command line and edit configuration files.
+`}).add({id:1,href:"https://trueblocks.io/docs/install/install-core/",title:"Install core",description:"TrueBlocks works on Linux and Mac",content:`<!-- markdownlint-disable MD041 MD033 -->
+<p>These instructions assume you can navigate the command line and edit configuration files.
 If you need help with a particular step, see the <a href="/docs/install/install-troubleshooting">installation&rsquo;s troubleshooting section</a>.</p>
 <h2 id="installation">Installation</h2>
 <ul>
@@ -185,9 +187,10 @@ said</a>:</p>
 <blockquote>
 <p>In fact, I&rsquo;m a huge proponent of designing your code around the data, rather than the other way around.</p>
 </blockquote>
-<h2 id="more-words">More words!</h2>
+<h2 id="more-words">More words</h2>
 <p>We&rsquo;ve got more words for you. <a href="/blog/a-long-winded-explanation-of-trueblocks/">This blog post covers these topics in much more detail</a>.</p>
-`}).add({id:3,href:"https://trueblocks.io/docs/install/build-unchained-index/",title:"Unchained Index",description:"There are three ways to get the index. Each way involves some tradeoff between initialization time, storage use, and local access.",content:`<table>
+`}).add({id:3,href:"https://trueblocks.io/docs/install/build-unchained-index/",title:"Unchained Index",description:"There are three ways to get the index. Each way involves some tradeoff between initialization time, storage use, and local access.",content:`<!-- markdownlint-disable MD041 MD033 -->
+<table>
 <thead>
 <tr>
 <th>If you want&hellip;</th>
@@ -538,7 +541,7 @@ of building an index from your own node:</p>
 <p>Once you do start to run your own node software, you will be very glad you did. While you can use publicly available endpoints such as Infura, you will find that you will almost certainly be rate-limited. This is not true if you run your own node.</p>
 <h2 id="support-for-default-chains">Support for default chains</h2>
 <p>Notwithstanding the above, we&rsquo;ve provided default configurations for the following eight (8) EVM compatible chains:</p>
-<pre><code>mainnet, rinkeby, ropsten, goerli, kovan,
+<pre><code class="language-[bash]">mainnet, rinkeby, ropsten, goerli, kovan,
 gnosis, optimism, polygon
 </code></pre>
 <p>In each case (except <code>mainnet</code>) we point to public RPC endpoints. It is likely that you will be rate-limited if you use these options. Providing your own endpoints is much preferred.</p>
@@ -547,10 +550,10 @@ gnosis, optimism, polygon
 <h2 id="adding-your-own-chain">Adding your own chain</h2>
 <p>To configure a chain or add a new one, you must edit an entry for the <code>chains</code> array in the <code>trueBlocks.toml</code> file.</p>
 <p>Once added, you may use your new chain entry by naming it to the <code>--chain</code> option:</p>
-<pre><code>chifra &lt;cmd&gt; &lt;options&gt; --chain &lt;chain-name&gt;
+<pre><code class="language-[bash]">chifra &lt;cmd&gt; &lt;options&gt; --chain &lt;chain-name&gt;
 </code></pre>
 <p>Below is one of the pre-configured sections for Ethereum Mainnet. Following that is a description of fields making up a chain configuration. Note that the section header of the chain must start with <code>chains.</code> and becomes the name of the chain.</p>
-<pre><code>[chains.mainnet]
+<pre><code class="language-[bash]">[chains.mainnet]
 chainId = &quot;1&quot;
 rpcProvider = &quot;http://localhost:8545&quot;
 remoteExplorer = &quot;https://etherscan.io&quot;
